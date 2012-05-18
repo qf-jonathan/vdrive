@@ -6,7 +6,7 @@ define('EXP', '.php');
 
 require BASE . 'base' . SEP . 'despachador' . EXT;
 
-$app = new Despachador();
+$app = new Despachador;
 $app->lanzar();
 
 /* fin de index.php */
