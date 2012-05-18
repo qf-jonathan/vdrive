@@ -2,9 +2,10 @@
 
 define('BASE', __DIR__ . '/');
 define('SEP', DIRECTORY_SEPARATOR);
-define('EXP', '.php');
+define('EXT', '.php');
 
 require BASE . 'base' . SEP . 'configuracion' . EXT;
+require BASE . 'base' . SEP . 'error' . EXT;
 require BASE . 'base' . SEP . 'despachador' . EXT;
 
 $app = new Despachador;

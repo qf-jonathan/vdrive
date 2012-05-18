@@ -1,6 +1,6 @@
 <?php
 
-class Depachador {
+class Despachador {
 
 	private $controlador = '';
 	private $accion = '';
@@ -27,7 +27,27 @@ class Depachador {
 	}
 
 	public function lanzar() {
-		
+		if ($this->controlador === '' || $this->accion === '')
+			Error::set_404();
+
+		$direccion = BASE . 'controlador' . SEP;
+
+		if (!file_exists($direccion . $this->controlador . EXT))
+			Error::set_404();
+
+		require $direccion . $this->controlador . EXT;
+
+		$clase = ucfirst($this->controlador) . '_Controlador';
+
+		if (!class_exists($clase))
+			Error::set_404();
+
+		$accion = $this->accion . '_accion';
+
+		if (!method_exists($clase, $accion))
+			Error::set_404();
+
+		call_user_func_array(array(new $clase, $accion), $this->argumentos);
 	}
 
 }
