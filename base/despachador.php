@@ -24,6 +24,8 @@ class Despachador {
 			$this->accion = Configuracion::$accion_defecto;
 			$this->argumentos = Configuracion::$accion_defecto;
 		}
+		if($this->accion==='')
+			$this->accion = Configuracion::$accion_defecto;
 	}
 
 	public function lanzar() {
