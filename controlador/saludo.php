@@ -5,10 +5,6 @@ class Saludo_Controlador extends Controlador {
 	public function __construct() {
 		parent::__construct();
 		$this->cargar_modelo('prueba');
-		$this->cargar_modelo('prueba');
-		$this->cargar_modelo('prueba');
-		$this->cargar_modelo('prueba');
-		$this->cargar_modelo('prueba');
 	}
 	
 	public function index_accion(){

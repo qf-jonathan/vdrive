@@ -1,9 +1,9 @@
 <?php
 
 class Prueba_Modelo extends Modelo {
-	
+
 	public function __construct() {
-		echo 'creado modelo';
+		parent::__construct();
 	}
 
 	public function mensaje() {
