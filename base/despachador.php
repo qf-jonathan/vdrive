@@ -22,7 +22,7 @@ class Despachador {
 		} else {
 			$this->controlador = Configuracion::$controlador_defecto;
 			$this->accion = Configuracion::$accion_defecto;
-			$this->argumentos = Configuracion::$accion_defecto;
+			$this->argumentos = Configuracion::$argumento_defecto;
 		}
 		if($this->accion==='')
 			$this->accion = Configuracion::$accion_defecto;
