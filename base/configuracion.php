@@ -12,7 +12,7 @@ class Configuracion {
 			'hosting' => 'localhost',
 			'usuario' => 'root',
 			'clave' => 'j0nathan_',
-			'nombre' => 'test'
+			'nombre' => 'testd'
 		),
 	);
 

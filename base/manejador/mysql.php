@@ -13,9 +13,14 @@ class Mysql {
 		mysql_select_db($data['nombre'], $this->enlace);
 	}
 
-	public function query($sql) {
-		$resultado = mysql_query($sql, $this->enlace);
-		return Mysql_dataset($resultado);
+	public function consulta($sql) {
+		//var_dump($this->enlace);
+		//if($this->enlace!==FALSE){
+			$resultado = mysql_query($sql, $this->enlace);
+		//}
+		var_dump($resultado);
+		//echo $sql;
+		return new Mysql_dataset($resultado);
 	}
 
 	public static function ultimo_id() {

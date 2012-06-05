@@ -5,10 +5,14 @@ class Saludo_Controlador extends Controlador {
 	public function __construct() {
 		parent::__construct();
 		$this->cargar_modelo('prueba');
+		$this->cargar_db('default','db');
 	}
 	
 	public function index_accion(){
-		$this->prueba->mensaje();
+		$res=$this->db->consulta('SELEC * FROM hola');
+		//var_dump($res);
+		$res->filas();
+		//$this->prueba->mensaje();
 	}
 	
 	public function otro_accion(){

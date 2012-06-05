@@ -35,8 +35,8 @@ class Controlador {
 		if (!isset(self::$_db_cargados[$conexion])) {
 			$datos = Configuracion::$database[$conexion];
 			require_once BASE . 'base' . SEP . 'manejador' . SEP .
-					($datos->manejador) . 'php';
-			$clase = ucfirst($this->manejador);
+					($datos['manejador']) . '.php';
+			$clase = ucfirst($datos['manejador']);
 			self::$_db_cargados[$conexion] = new $clase($datos);
 		}
 		if ($nombre === NULL)
