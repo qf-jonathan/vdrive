@@ -9,6 +9,7 @@ class Error {
 	}
 	
 	public static function db($numero, $mensage){
+		header("HTTP/1.0 500 Server Error");
 		include BASE . 'base' . SEP . 'vista' . SEP . 'db' . EXT;
 		exit();
 	}
