@@ -45,6 +45,24 @@ class Controlador {
 			$this->$nombre = &self::$_db_cargados[$conexion];
 	}
 
+	public function post($elemento, $limpiar = FALSE) {
+		if (is_array($elemento)) {
+			$res = array();
+			foreach ($elemento as $el) {
+				if (isset($_POST[$el]))
+					$res[$el] = mysql_escape_string($_POST['el']);
+				else
+					$res[$el] = FALSE;
+			}
+		}else {
+			if (isset($_POST[$elemento]))
+				$res = mysql_escape_string($_POST[$elemento]);
+			else
+				$res = FALSE;
+		}
+		return $res;
+	}
+
 }
 
 /* fidn base/controlador.php */
