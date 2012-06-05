@@ -5,7 +5,7 @@ class DB {
 	private $obj = NULL;
 	private $manejador = '';
 	private $hosting = '';
-	private $usuario = '';
+	private $usuario = 's';
 	private $clave = '';
 	private $nombre = '';
 	private static $conecciones = array();
