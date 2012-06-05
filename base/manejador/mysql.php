@@ -1,5 +1,7 @@
 <?php
 
+require 'mysql_dataset.php';
+
 class Mysql {
 
 	private $enlace = NULL;
@@ -12,7 +14,14 @@ class Mysql {
 	}
 
 	public function query($sql) {
-		return mysql_query($sql, $this->enlace);
+		$resultado = mysql_query($sql, $this->enlace);
+		return Mysql_dataset($resultado);
+	}
+
+	public static function ultimo_id() {
+		return mysql_insert_id($this->enlace);
 	}
 
 }
+
+/* fin base/manejador/mysql.sql */
