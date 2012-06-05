@@ -7,6 +7,11 @@ class Error {
 		include BASE . 'base' . SEP . 'vista' . SEP . '404' . EXT;
 		exit();
 	}
+	
+	public static function db($numero, $mensage){
+		include BASE . 'base' . SEP . 'vista' . SEP . 'db' . EXT;
+		exit();
+	}
 
 }
 

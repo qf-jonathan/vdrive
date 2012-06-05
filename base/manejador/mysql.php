@@ -7,19 +7,20 @@ class Mysql {
 	private $enlace = NULL;
 
 	public function __construct($data) {
-		$this->enlace = mysql_connect(
+		$this->enlace = @mysql_connect(
 				$data['hosting'], $data['usuario'], $data['clave']
 		);
-		mysql_select_db($data['nombre'], $this->enlace);
+		if (mysql_errno() != 0)
+			Error::db(mysql_errno(), mysql_error());
+		@mysql_select_db($data['nombre'], $this->enlace);
+		if (mysql_errno($this->enlace) != 0)
+			Error::db(mysql_errno($this->enlace), mysql_error($this->enlace));
 	}
 
 	public function consulta($sql) {
-		//var_dump($this->enlace);
-		//if($this->enlace!==FALSE){
-			$resultado = mysql_query($sql, $this->enlace);
-		//}
-		var_dump($resultado);
-		//echo $sql;
+		$resultado = @mysql_query($sql, $this->enlace);
+		if (mysql_errno() != 0)
+			Error::db(mysql_errno($this->enlace), mysql_error($this->enlace));
 		return new Mysql_dataset($resultado);
 	}
 

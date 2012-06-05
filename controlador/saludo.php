@@ -9,9 +9,9 @@ class Saludo_Controlador extends Controlador {
 	}
 	
 	public function index_accion(){
-		$res=$this->db->consulta('SELEC * FROM hola');
+		$res=$this->db->consulta('SELECT * FROM hola');
 		//var_dump($res);
-		$res->filas();
+		echo $res->filas();
 		//$this->prueba->mensaje();
 	}
 	
