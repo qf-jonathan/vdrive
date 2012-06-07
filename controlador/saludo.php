@@ -9,7 +9,7 @@ class Saludo_Controlador extends Controlador {
 	}
 	
 	public function index_accion(){
-		$res=$this->db->consulta('SELECT * FROM hola');
+		$res=$this->db->consulta('SELECT * FROM tables');
 		echo $res->filas();
 	}
 	

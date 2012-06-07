@@ -6,6 +6,7 @@ define('EXT', '.php');
 
 require BASE . 'base' . SEP . 'configuracion' . EXT;
 require BASE . 'base' . SEP . 'error' . EXT;
+require BASE . 'base' . SEP . 'base' . EXT;
 require BASE . 'base' . SEP . 'modelo' . EXT;
 require BASE . 'base' . SEP . 'controlador' . EXT;
 require BASE . 'base' . SEP . 'despachador' . EXT;

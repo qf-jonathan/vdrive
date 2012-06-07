@@ -1,6 +1,6 @@
 <?php
 
-class Modelo {
+class Modelo extends Base{
 
 	public function __construct() {
 		;
