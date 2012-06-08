@@ -12,14 +12,18 @@ class Base {
 			$clase = ucfirst($modelo) . '_Modelo';
 			self::$_modelos_cargados[$modelo] = new $clase;
 		}
-		if ($nombre === NULL)
-			$this->$modelo = &self::$_modelos_cargados[$modelo];
-		else
-			$this->$nombre = &self::$_modelos_cargados[$modelo];
+		$nombre = $nombre === NULL ? $modelo : $nombre;
+		$this->$nombre = &self::$_modelos_cargados[$modelo];
 	}
 
-	public function cargar_libreria($libreria) {
-		
+	public function cargar_libreria($libreria, $nombre) {
+		if (!isset(self::$_librerias_cargadas[$libreria])) {
+			require BASE . 'libreria' . SEP . $modelo . EXT;
+			$clase = ucfirst($libreria) . '_Lib';
+			self::$_librerias_cargadas[$libreria] = new $clase;
+		}
+		$nombre = $nombre === NULL ? $libreria : $nombre;
+		$this->$nombre = self::$_librerias_cargadas[$libreria];
 	}
 
 	public function cargar_db($conexion, $nombre = NULL) {
@@ -30,24 +34,22 @@ class Base {
 			$clase = ucfirst($datos['manejador']);
 			self::$_db_cargados[$conexion] = new $clase($datos);
 		}
-		if ($nombre === NULL)
-			$this->$conexion = &self::$_db_cargados[$conexion];
-		else
-			$this->$nombre = &self::$_db_cargados[$conexion];
+		$nombre = $nombre === NULL ? $conexion : $nombre;
+		$this->$nombre = &self::$_db_cargados[$conexion];
 	}
 
-	public function post($elemento, $limpiar = FALSE) {
+	public function entrada($elemento, $limpiar = FALSE) {
 		if (is_array($elemento)) {
 			$res = array();
 			foreach ($elemento as $el) {
 				if (isset($_POST[$el]))
-					$res[$el] = mysql_escape_string($_POST['el']);
+					$res[$el] = mysql_escape_string($_REQUEST[$el]);
 				else
 					$res[$el] = FALSE;
 			}
 		}else {
 			if (isset($_POST[$elemento]))
-				$res = mysql_escape_string($_POST[$elemento]);
+				$res = mysql_escape_string($_REQUEST[$elemento]);
 			else
 				$res = FALSE;
 		}
