@@ -6,6 +6,7 @@ class Configuracion {
 	public static $controlador_defecto = 'saludo';
 	public static $accion_defecto = 'index';
 	public static $argumento_defecto = array();
+	public static $nombre_sesion = 'vdrive';
 	public static $database = array(
 		'default' => array(
 			'manejador' => 'mysql',
