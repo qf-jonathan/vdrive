@@ -4,6 +4,7 @@ class Sesion_Lib {
 
 	public function __construct() {
 		session_start();
+		session_name(Configuracion::$nombre_sesion);
 	}
 
 	public function poner_dato($clave, $valor) {
