@@ -8,11 +8,11 @@ class Vdrive_controlador extends Controlador {
 	}
 
 	public function index_accion() {
-		$this->cargar_vista('login', array('url'=>$this->url));
+		$this->cargar_vista('vdrive', array('url'=>$this->url));
 	}
 
 	public function login_accion() {
-		$this->cargar_vista('login', array('url'=>$this->url));
+		$this->cargar_vista('vdrive', array('url'=>$this->url));
 	}
 
 }
